@@ -2,6 +2,7 @@
 #include "../src/convert.h"
 
 
+
 /* check for Roman numeral validity */
 
 START_TEST (check_I_valid)
@@ -213,8 +214,127 @@ END_TEST
 
 
 
+/* check for arabic --> roman numeral */
 
+START_TEST (check_1_to_I)
+{
+    char test_numeral[16];
 
+    convert_arabic_to_roman(1, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "I");
+}
+END_TEST
+
+START_TEST (check_4_to_IV)
+{
+    char test_numeral[16];
+
+    convert_arabic_to_roman(4, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "IV");}
+END_TEST
+
+START_TEST (check_5_to_V)
+{
+    char test_numeral[16];
+
+    convert_arabic_to_roman(5, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "V");
+}
+END_TEST
+
+START_TEST (check_9_to_IX)
+{
+    char test_numeral[16];
+
+    convert_arabic_to_roman(9, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "IX");}
+END_TEST
+
+START_TEST (check_10_to_X)
+{
+    char test_numeral[16];
+
+    convert_arabic_to_roman(10, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "X");}
+END_TEST
+
+START_TEST (check_40_to_XL)
+{
+    char test_numeral[16];
+
+    convert_arabic_to_roman(40, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "XL");}
+END_TEST
+
+START_TEST (check_50_to_L)
+{
+    char test_numeral[16];
+
+    convert_arabic_to_roman(50, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "L");}
+END_TEST
+
+START_TEST (check_90_to_XC)
+{
+    char test_numeral[16];
+
+    convert_arabic_to_roman(90, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "XC");}
+END_TEST
+
+START_TEST (check_400_to_CD)
+{
+    char test_numeral[16];
+
+    convert_arabic_to_roman(400, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "CD");}
+END_TEST
+
+START_TEST (check_500_to_D)
+{
+    char test_numeral[16];
+
+    convert_arabic_to_roman(500, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "D");}
+END_TEST
+
+START_TEST (check_900_to_CM)
+{
+    char test_numeral[16];
+
+    convert_arabic_to_roman(900, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "CM");}
+END_TEST
+
+START_TEST (check_1000_to_M)
+{
+    char test_numeral[16];
+
+    convert_arabic_to_roman(1000, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "M");
+}
+END_TEST
+
+START_TEST (check_3999_to_MMMCMXCIX)
+{
+    char test_numeral[16];
+
+    convert_arabic_to_roman(3999, test_numeral);
+
+    ck_assert_str_eq(test_numeral, "MMMCMXCIX");}
+END_TEST
 
 
 
@@ -245,22 +365,39 @@ Suite* convert_test_suite(void)
     tcase_add_test(test_case_valid_numerals, check_CCCC_invalid);
     suite_add_tcase(test_suite, test_case_valid_numerals);
 
-    /* Test Case For Converting From Roman Numeral To Arabiuc */
+    /* Test Case For Converting From Roman Numeral To Arabic */
     TCase * test_case_roman_to_arabic = tcase_create("Test Case Check Roman to Arabic");
-    tcase_add_test(test_case_valid_numerals, check_I_to_1);
-    tcase_add_test(test_case_valid_numerals, check_IV_to_4);
-    tcase_add_test(test_case_valid_numerals, check_V_to_5);
-    tcase_add_test(test_case_valid_numerals, check_IX_to_9);
-    tcase_add_test(test_case_valid_numerals, check_X_to_10);
-    tcase_add_test(test_case_valid_numerals, check_XL_to_40);
-    tcase_add_test(test_case_valid_numerals, check_L_to_50);
-    tcase_add_test(test_case_valid_numerals, check_XC_to_90);
-    tcase_add_test(test_case_valid_numerals, check_CD_to_400);
-    tcase_add_test(test_case_valid_numerals, check_D_to_500);
-    tcase_add_test(test_case_valid_numerals, check_CM_to_900);
-    tcase_add_test(test_case_valid_numerals, check_M_to_1000);
-    tcase_add_test(test_case_valid_numerals, check_MMMCMXCIX_to_3999);
+    tcase_add_test(test_case_roman_to_arabic, check_I_to_1);
+    tcase_add_test(test_case_roman_to_arabic, check_IV_to_4);
+    tcase_add_test(test_case_roman_to_arabic, check_V_to_5);
+    tcase_add_test(test_case_roman_to_arabic, check_IX_to_9);
+    tcase_add_test(test_case_roman_to_arabic, check_X_to_10);
+    tcase_add_test(test_case_roman_to_arabic, check_XL_to_40);
+    tcase_add_test(test_case_roman_to_arabic, check_L_to_50);
+    tcase_add_test(test_case_roman_to_arabic, check_XC_to_90);
+    tcase_add_test(test_case_roman_to_arabic, check_CD_to_400);
+    tcase_add_test(test_case_roman_to_arabic, check_D_to_500);
+    tcase_add_test(test_case_roman_to_arabic, check_CM_to_900);
+    tcase_add_test(test_case_roman_to_arabic, check_M_to_1000);
+    tcase_add_test(test_case_roman_to_arabic, check_MMMCMXCIX_to_3999);
     suite_add_tcase(test_suite, test_case_roman_to_arabic);
+
+    /* Test Case For Converting From Arabic To Roman Numeral */
+    TCase * test_case_arabic_to_roman = tcase_create("Test Case Check Arabic to Roman");
+    tcase_add_test(test_case_arabic_to_roman, check_1_to_I);
+    tcase_add_test(test_case_arabic_to_roman, check_4_to_IV);
+    tcase_add_test(test_case_arabic_to_roman, check_5_to_V);
+    tcase_add_test(test_case_arabic_to_roman, check_9_to_IX);
+    tcase_add_test(test_case_arabic_to_roman, check_10_to_X);
+    tcase_add_test(test_case_arabic_to_roman, check_40_to_XL);
+    tcase_add_test(test_case_arabic_to_roman, check_50_to_L);
+    tcase_add_test(test_case_arabic_to_roman, check_90_to_XC);
+    tcase_add_test(test_case_arabic_to_roman, check_400_to_CD);
+    tcase_add_test(test_case_arabic_to_roman, check_500_to_D);
+    tcase_add_test(test_case_arabic_to_roman, check_900_to_CM);
+    tcase_add_test(test_case_arabic_to_roman, check_1000_to_M);
+    tcase_add_test(test_case_arabic_to_roman, check_3999_to_MMMCMXCIX);
+    suite_add_tcase(test_suite, test_case_arabic_to_roman);
 
     return test_suite;
 }
