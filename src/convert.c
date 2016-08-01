@@ -29,3 +29,36 @@ int valid_roman_numeral(char * numeral){
 	}
 	return 1;
 }
+
+/**
+ * Takes a single roman numeral digit as an argument and returns its integer equivalent.
+ */
+int roman_digit_to_integer(char numeral)
+{
+  switch (numeral) {
+	  case 'I': return 1;
+	  case 'V': return 5;
+	  case 'X': return 10;
+	  case 'L': return 50;
+	  case 'C': return 100;
+	  case 'D': return 500;
+	  case 'M': return 1000;
+	  default: return 0;
+  }
+}
+
+/**
+ * Converts a Roman numeral to its arabic equivalent or returns 0 if invalid.
+ */
+int convert_roman_to_arabic(char * numeral){
+	int output = 0;
+	int numeral_length = strlen(numeral);
+	for (int i = 0; i < numeral_length; i++) {
+		if (i + 1 < numeral_length && roman_digit_to_integer(numeral[i]) < roman_digit_to_integer(numeral[i + 1])) {
+			output -= roman_digit_to_integer(numeral[i]);
+		} else {
+			output += roman_digit_to_integer(numeral[i]);
+		}
+	}
+	return output;
+}
