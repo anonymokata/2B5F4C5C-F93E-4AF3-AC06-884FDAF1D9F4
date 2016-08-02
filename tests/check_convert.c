@@ -219,9 +219,7 @@ END_TEST
 START_TEST (check_1_to_I)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(1, test_numeral);
-
     ck_assert_str_eq(test_numeral, "I");
 }
 END_TEST
@@ -229,18 +227,14 @@ END_TEST
 START_TEST (check_4_to_IV)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(4, test_numeral);
-
     ck_assert_str_eq(test_numeral, "IV");}
 END_TEST
 
 START_TEST (check_5_to_V)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(5, test_numeral);
-
     ck_assert_str_eq(test_numeral, "V");
 }
 END_TEST
@@ -248,81 +242,63 @@ END_TEST
 START_TEST (check_9_to_IX)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(9, test_numeral);
-
     ck_assert_str_eq(test_numeral, "IX");}
 END_TEST
 
 START_TEST (check_10_to_X)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(10, test_numeral);
-
     ck_assert_str_eq(test_numeral, "X");}
 END_TEST
 
 START_TEST (check_40_to_XL)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(40, test_numeral);
-
     ck_assert_str_eq(test_numeral, "XL");}
 END_TEST
 
 START_TEST (check_50_to_L)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(50, test_numeral);
-
     ck_assert_str_eq(test_numeral, "L");}
 END_TEST
 
 START_TEST (check_90_to_XC)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(90, test_numeral);
-
     ck_assert_str_eq(test_numeral, "XC");}
 END_TEST
 
 START_TEST (check_400_to_CD)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(400, test_numeral);
-
     ck_assert_str_eq(test_numeral, "CD");}
 END_TEST
 
 START_TEST (check_500_to_D)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(500, test_numeral);
-
     ck_assert_str_eq(test_numeral, "D");}
 END_TEST
 
 START_TEST (check_900_to_CM)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(900, test_numeral);
-
     ck_assert_str_eq(test_numeral, "CM");}
 END_TEST
 
 START_TEST (check_1000_to_M)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(1000, test_numeral);
-
     ck_assert_str_eq(test_numeral, "M");
 }
 END_TEST
@@ -330,9 +306,7 @@ END_TEST
 START_TEST (check_3999_to_MMMCMXCIX)
 {
     char test_numeral[16];
-
     convert_arabic_to_roman(3999, test_numeral);
-
     ck_assert_str_eq(test_numeral, "MMMCMXCIX");}
 END_TEST
 

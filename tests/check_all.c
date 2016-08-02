@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	/* Create test suite references and add all to a suite runner */
+	/* create test suite references and add all to a suite runner */
     Suite 	*suite_calculate	= calculate_test_suite();
     Suite 	*suite_convert		= convert_test_suite();
     SRunner *suite_runner		= srunner_create(suite_calculate);

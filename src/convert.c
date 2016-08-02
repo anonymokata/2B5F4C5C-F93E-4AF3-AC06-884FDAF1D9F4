@@ -96,7 +96,7 @@ int convert_roman_to_arabic(char * numeral){
 void convert_arabic_to_roman(int integer, char * numeral) {
 
 	/* initialize the return char */
-	*numeral = 0;
+	memset( numeral, 0x00, sizeof(numeral) );
 
 	/* get size of conversion table */
 	int len = sizeof(CONVERSION_TABLE) / sizeof(conversion_struct);
@@ -104,7 +104,6 @@ void convert_arabic_to_roman(int integer, char * numeral) {
 	/* convert values */
 	for(int i = 0; i < len; i++) {
 		const conversion_struct table = CONVERSION_TABLE[i];
-
 		while(integer >= table.value) {
 			strcat(numeral, table.numeral);
 			integer -= table.value;
