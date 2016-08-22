@@ -117,6 +117,21 @@ START_TEST (check_CCCC_invalid)
 }
 END_TEST
 
+START_TEST (check_NULL_invalid)
+{
+    int valid = valid_roman_numeral(NULL);
+    ck_assert_int_eq(valid, 0);
+}
+END_TEST
+
+START_TEST (check_BLANK_invalid)
+{
+    int valid = valid_roman_numeral("");
+    ck_assert_int_eq(valid, 0);
+}
+END_TEST
+
+
 
 
 /* check for roman numeral --> arabic */
@@ -337,6 +352,10 @@ Suite* convert_test_suite(void)
     tcase_add_test(test_case_valid_numerals, check_XXXX_invalid);
     tcase_add_test(test_case_valid_numerals, check_CCC_valid);
     tcase_add_test(test_case_valid_numerals, check_CCCC_invalid);
+    tcase_add_test(test_case_valid_numerals, check_NULL_invalid);
+    tcase_add_test(test_case_valid_numerals, check_BLANK_invalid);
+
+
     suite_add_tcase(test_suite, test_case_valid_numerals);
 
     /* Test Case For Converting From Roman Numeral To Arabic */
