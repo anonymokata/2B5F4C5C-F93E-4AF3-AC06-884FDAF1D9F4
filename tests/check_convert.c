@@ -131,6 +131,14 @@ START_TEST (check_BLANK_invalid)
 }
 END_TEST
 
+START_TEST (check_TOO_LONG_invalid)
+{
+	char test_val[18];
+	memset(test_val, 'X', 18);
+    int valid = valid_roman_numeral(test_val);
+    ck_assert_int_eq(valid, 0);
+}
+END_TEST
 
 
 
@@ -354,8 +362,7 @@ Suite* convert_test_suite(void)
     tcase_add_test(test_case_valid_numerals, check_CCCC_invalid);
     tcase_add_test(test_case_valid_numerals, check_NULL_invalid);
     tcase_add_test(test_case_valid_numerals, check_BLANK_invalid);
-
-
+    tcase_add_test(test_case_valid_numerals, check_TOO_LONG_invalid);
     suite_add_tcase(test_suite, test_case_valid_numerals);
 
     /* Test Case For Converting From Roman Numeral To Arabic */
