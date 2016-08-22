@@ -5,7 +5,7 @@
 /**
  * Adds two roman numerals and sets result to the resultant of the addition.
  */
-addition(const char *first_arg, const char *second_arg, char *result){
+void addition(const char *first_arg, const char *second_arg, char *result){
 	//TODO
 }
 
