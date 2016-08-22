@@ -46,6 +46,23 @@ int valid_roman_numeral(const char *numeral){
 	return 1;
 }
 
+/**
+ * Takes a single roman numeral digit as an argument and returns its integer equivalent.
+ */
+int roman_digit_to_integer(const char *numeral){
+	const char num = numeral[0];
+	switch (num) {
+	  case 'I': return 1;
+	  case 'V': return 5;
+	  case 'X': return 10;
+	  case 'L': return 50;
+	  case 'C': return 100;
+	  case 'D': return 500;
+	  case 'M': return 1000;
+	  default: return 0;
+	}
+}
+
 
 
 
