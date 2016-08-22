@@ -13,6 +13,11 @@ static char regex_string[] = "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{
  */
 int valid_roman_numeral(const char *numeral){
 
+	/* Verify parameters exist */
+	if(numeral == NULL || numeral[0] == '\0'){
+		return 0;
+	}
+
 	/* Create and compile a regex for the valid numeral string */
 	regex_t regex_comp;
 	regcomp(&regex_comp, regex_string, REG_EXTENDED);
