@@ -4,13 +4,15 @@
 #include "convert.h"
 #include <regex.h>
 
-/* Regex string for determining validity of roman numerals */
-static const char regex_string[] = "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$";
 
 /* Limits */
 static const int MAX_LENGTH = 16;
 static const int MAX_NUMERAL_VALUE = 3999;
 static const int MIN_NUMERAL_VALUE = 1;
+
+
+/* Regex string for determining validity of roman numerals */
+static const char regex_string[] = "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$";
 
 /* Conversion table for converting from arabic to roman */
 typedef struct {
