@@ -1,4 +1,7 @@
+
 Greetings reviewer of my code!
+
+I have revised my code according to the helpful feedback I have received!
 
 Since you certainly already know the rules of the game I will keep this simple for you!
 
