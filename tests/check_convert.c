@@ -241,113 +241,98 @@ END_TEST
 
 START_TEST (check_1_to_I)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(1, test_numeral);
-    ck_assert_str_eq(test_numeral, "I");
+    ck_assert_str_eq("I", convert_arabic_to_roman(1));
 }
 END_TEST
 
 START_TEST (check_4_to_IV)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(4, test_numeral);
-    ck_assert_str_eq(test_numeral, "IV");}
+    ck_assert_str_eq("IV", convert_arabic_to_roman(4));
+}
 END_TEST
 
 START_TEST (check_5_to_V)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(5, test_numeral);
-    ck_assert_str_eq(test_numeral, "V");
+    ck_assert_str_eq("V", convert_arabic_to_roman(5));
 }
 END_TEST
 
 START_TEST (check_9_to_IX)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(9, test_numeral);
-    ck_assert_str_eq(test_numeral, "IX");}
+    ck_assert_str_eq("IX", convert_arabic_to_roman(9));
+}
 END_TEST
 
 START_TEST (check_10_to_X)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(10, test_numeral);
-    ck_assert_str_eq(test_numeral, "X");}
+    ck_assert_str_eq("X", convert_arabic_to_roman(10));
+}
 END_TEST
 
 START_TEST (check_40_to_XL)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(40, test_numeral);
-    ck_assert_str_eq(test_numeral, "XL");}
+    ck_assert_str_eq("XL", convert_arabic_to_roman(40));
+}
 END_TEST
 
 START_TEST (check_50_to_L)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(50, test_numeral);
-    ck_assert_str_eq(test_numeral, "L");}
+    ck_assert_str_eq("L", convert_arabic_to_roman(50));
+}
 END_TEST
 
 START_TEST (check_90_to_XC)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(90, test_numeral);
-    ck_assert_str_eq(test_numeral, "XC");}
+    ck_assert_str_eq("XC", convert_arabic_to_roman(90));
+}
 END_TEST
 
 START_TEST (check_400_to_CD)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(400, test_numeral);
-    ck_assert_str_eq(test_numeral, "CD");}
+    ck_assert_str_eq("CD", convert_arabic_to_roman(400));
+}
 END_TEST
 
 START_TEST (check_500_to_D)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(500, test_numeral);
-    ck_assert_str_eq(test_numeral, "D");}
+    ck_assert_str_eq("D", convert_arabic_to_roman(500));
+}
 END_TEST
 
 START_TEST (check_900_to_CM)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(900, test_numeral);
-    ck_assert_str_eq(test_numeral, "CM");}
+    ck_assert_str_eq("CM", convert_arabic_to_roman(900));
+}
 END_TEST
 
 START_TEST (check_1000_to_M)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(1000, test_numeral);
-    ck_assert_str_eq(test_numeral, "M");
+    ck_assert_str_eq("M", convert_arabic_to_roman(1000));
 }
 END_TEST
 
 START_TEST (check_3999_to_MMMCMXCIX)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(3999, test_numeral);
-    ck_assert_str_eq(test_numeral, "MMMCMXCIX");}
+    ck_assert_str_eq("MMMCMXCIX", convert_arabic_to_roman(3999));
+}
 END_TEST
 
 START_TEST (check_4000_to_INVALID)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(4000, test_numeral);
-    ck_assert_str_eq(test_numeral, "");
+    ck_assert_str_eq("", convert_arabic_to_roman(4000));
 }
 END_TEST
 
 START_TEST (check_0_to_INVALID)
 {
-    char test_numeral[16];
-    convert_arabic_to_roman(0, test_numeral);
-    ck_assert_str_eq(test_numeral, "");
+    ck_assert_str_eq("", convert_arabic_to_roman(0));
 }
 END_TEST
+
+
+
+
+
 
 /**
  * Test suite for running tests on conversion functions.

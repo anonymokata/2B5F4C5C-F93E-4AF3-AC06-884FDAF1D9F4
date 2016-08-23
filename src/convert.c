@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "convert.h"
 #include <regex.h>
 
@@ -104,10 +105,10 @@ int convert_roman_to_arabic(const char *numeral){
 /**
  * Converts the passed arabic number into a Roman numeral returned via the passed reference.
  */
-void convert_arabic_to_roman(int num, char *roman_num){
+char *convert_arabic_to_roman(int num){
 
-	/* Initialize the buffer */
-	memset(roman_num, '\0', MAX_LENGTH);
+	/* Initialize buffer */
+	char * roman_num = malloc(MAX_LENGTH);
 
 	/* get size of conversion table */
 	int len = sizeof(CONVERSION_TABLE) / sizeof(conversion_struct);
@@ -120,4 +121,6 @@ void convert_arabic_to_roman(int num, char *roman_num){
 			num -= table.value;
 		}
 	}
+
+	return roman_num;
 }
