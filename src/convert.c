@@ -16,16 +16,8 @@ static const int MIN_NUMERAL_VALUE = 1;
  */
 int valid_roman_numeral(const char *numeral){
 
-	/* Verify parameter has a value */
-	if(numeral == NULL || numeral[0] == '\0'){
-		return 0;
-	}
-
-	/* Verify that the passed numeral is within max length */
-	char roman_numeral[MAX_LENGTH+1];
-	memset(roman_numeral, '\0', MAX_LENGTH+1);
-	strncpy(roman_numeral, numeral, MAX_LENGTH+1);
-	if(roman_numeral[MAX_LENGTH+1] != '\0'){
+	/* Verify parameter has a value and is within max length */
+	if(numeral == NULL || strlen(numeral) > MAX_LENGTH || numeral[0] == '\0'){
 		return 0;
 	}
 
@@ -49,9 +41,8 @@ int valid_roman_numeral(const char *numeral){
 /**
  * Takes a single roman numeral digit as an argument and returns its integer equivalent.
  */
-int roman_digit_to_integer(const char *numeral){
-	const char num = numeral[0];
-	switch (num) {
+int roman_digit_to_integer(const char numeral){
+	switch (numeral) {
 	  case 'I': return 1;
 	  case 'V': return 5;
 	  case 'X': return 10;
@@ -63,17 +54,32 @@ int roman_digit_to_integer(const char *numeral){
 	}
 }
 
-
-
-
-
 /**
  * Converts a Roman numeral to its arabic equivalent or returns 0 if invalid.
  */
 int convert_roman_to_arabic(const char *numeral){
-	//TODO
-	return 0;
+
+	/* Verify that the passed argument is a valid numeral */
+	if(valid_roman_numeral(numeral) == 0){
+		return 0;
+	}
+
+	/* Convert from roman numeral to arabic number form */
+	int numeral_length = strlen(numeral);
+	int output = 0;
+	for (int i = 0; i < numeral_length; i++) {
+		char letter = numeral[i];
+		if (i + 1 < numeral_length && roman_digit_to_integer(numeral[i]) < roman_digit_to_integer(numeral[i + 1])) {
+			output -= roman_digit_to_integer(letter);
+		} else {
+			output += roman_digit_to_integer(letter);
+		}
+	}
+	return output;
 }
+
+
+
 
 /**
  * Converts the passed arabic number into a Roman numeral returned via the passed reference.
