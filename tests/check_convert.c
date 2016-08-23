@@ -333,6 +333,21 @@ START_TEST (check_3999_to_MMMCMXCIX)
     ck_assert_str_eq(test_numeral, "MMMCMXCIX");}
 END_TEST
 
+START_TEST (check_4000_to_INVALID)
+{
+    char test_numeral[16];
+    convert_arabic_to_roman(4000, test_numeral);
+    ck_assert_str_eq(test_numeral, "");
+}
+END_TEST
+
+START_TEST (check_0_to_INVALID)
+{
+    char test_numeral[16];
+    convert_arabic_to_roman(0, test_numeral);
+    ck_assert_str_eq(test_numeral, "");
+}
+END_TEST
 
 /**
  * Test suite for running tests on conversion functions.
@@ -396,6 +411,8 @@ Suite* convert_test_suite(void)
     tcase_add_test(test_case_arabic_to_roman, check_900_to_CM);
     tcase_add_test(test_case_arabic_to_roman, check_1000_to_M);
     tcase_add_test(test_case_arabic_to_roman, check_3999_to_MMMCMXCIX);
+    tcase_add_test(test_case_arabic_to_roman, check_4000_to_INVALID);
+    tcase_add_test(test_case_arabic_to_roman, check_0_to_INVALID);
     suite_add_tcase(test_suite, test_case_arabic_to_roman);
 
     return test_suite;
