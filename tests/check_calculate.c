@@ -89,6 +89,15 @@ START_TEST (check_X_plus_XXX_equals_XL)
 }
 END_TEST
 
+START_TEST (check_ADDITION_INVALID_BUFFER)
+{
+    char resultant[MAX_LENGTH + 1];
+    memset(resultant, '\0', MAX_LENGTH + 1 );
+    addition("X", "XXX", resultant, MAX_LENGTH + 1);
+    ck_assert_str_eq(resultant, "");
+}
+END_TEST
+
 
 
 /* Subtraction checks */
@@ -165,6 +174,15 @@ START_TEST (check_X_minus_XI_equals_INVALID)
 }
 END_TEST
 
+START_TEST (check_SUBTRACTION_INVALID_BUFFER)
+{
+    char resultant[MAX_LENGTH + 1];
+    memset(resultant, '\0', MAX_LENGTH + 1 );
+    subtraction("X", "XXX", resultant, MAX_LENGTH + 1);
+    ck_assert_str_eq(resultant, "");
+}
+END_TEST
+
 
 
 /**
@@ -185,6 +203,7 @@ Suite* calculate_test_suite(void)
 	tcase_add_test(test_case_addition, check_XC_plus_XC_equals_CLXXX);
 	tcase_add_test(test_case_addition, check_X_plus_XXX_equals_XL);
 	tcase_add_test(test_case_addition, check_I_plus_MMMCMXCIX_equals_INVALID);
+	tcase_add_test(test_case_addition, check_ADDITION_INVALID_BUFFER);
 	suite_add_tcase(test_suite, test_case_addition);
 
     /* Test Case For Subtraction */
@@ -197,6 +216,7 @@ Suite* calculate_test_suite(void)
 	tcase_add_test(test_case_subtraction, check_MMM_minus_M_equals_MM);
 	tcase_add_test(test_case_subtraction, check_X_minus_XI_equals_INVALID);
 	tcase_add_test(test_case_subtraction, check_II_minus_II_equals_INVALID);
+	tcase_add_test(test_case_subtraction, check_SUBTRACTION_INVALID_BUFFER);
 	suite_add_tcase(test_suite, test_case_subtraction);
 
     return test_suite;
