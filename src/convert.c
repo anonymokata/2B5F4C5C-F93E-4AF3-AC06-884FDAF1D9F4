@@ -110,6 +110,11 @@ char *convert_arabic_to_roman(int num){
 	/* Initialize buffer */
 	char * roman_num = malloc(MAX_LENGTH);
 
+	/* Validate arguments */
+	if(num < MIN_NUMERAL_VALUE || num > MAX_NUMERAL_VALUE){
+		return roman_num;
+	}
+
 	/* get size of conversion table */
 	int len = sizeof(CONVERSION_TABLE) / sizeof(conversion_struct);
 
@@ -121,6 +126,5 @@ char *convert_arabic_to_roman(int num){
 			num -= table.value;
 		}
 	}
-
 	return roman_num;
 }
