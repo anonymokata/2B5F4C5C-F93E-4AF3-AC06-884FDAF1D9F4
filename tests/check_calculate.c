@@ -2,86 +2,89 @@
 #include "../src/calculate.h"
 
 
+/* Limits */
+static const int MAX_LENGTH = 16;
+
 
 /* Addition checks */
 
 START_TEST (check_I_plus_I_equals_II)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    addition("I", "I", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    addition("I", "I", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "II");
 }
 END_TEST
 
 START_TEST (check_I_plus_MMMCMXCIX_equals_INVALID)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    addition("I", "MMMCMXCIX", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    addition("I", "MMMCMXCIX", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "");
 }
 END_TEST
 
 START_TEST (check_MII_plus_CCX_equals_MCCXII)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    addition("MII", "CCX", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    addition("MII", "CCX", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "MCCXII");
 }
 END_TEST
 
 START_TEST (check_L_plus_L_equals_C)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    addition("L", "L", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    addition("L", "L", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "C");
 }
 END_TEST
 
 START_TEST (check_CCC_plus_CC_equals_D)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    addition("CCC", "CC", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    addition("CCC", "CC", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "D");
 }
 END_TEST
 
 START_TEST (check_D_plus_D_equals_M)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    addition("D", "D", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    addition("D", "D", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "M");
 }
 END_TEST
 
 START_TEST (check_IX_plus_IX_equals_XVIII)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    addition("IX", "IX", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    addition("IX", "IX", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "XVIII");
 }
 END_TEST
 
 START_TEST (check_XC_plus_XC_equals_CLXXX)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    addition("XC", "XC", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    addition("XC", "XC", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "CLXXX");
 }
 END_TEST
 
 START_TEST (check_X_plus_XXX_equals_XL)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    addition("X", "XXX", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    addition("X", "XXX", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "XL");
 }
 END_TEST
@@ -92,72 +95,72 @@ END_TEST
 
 START_TEST (check_II_minus_I_equals_I)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    subtraction("II", "I", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    subtraction("II", "I", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "I");
 }
 END_TEST
 
 START_TEST (check_II_minus_II_equals_INVALID)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    subtraction("II", "II", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    subtraction("II", "II", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "");
 }
 END_TEST
 
 START_TEST (check_MMMMCCXCVIII_minus_MMI_equals_INVALID)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    subtraction("MMMMCCXCVIII", "MMI", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    subtraction("MMMMCCXCVIII", "MMI", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "");
 }
 END_TEST
 
 START_TEST (check_V_minus_I_equals_IV)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    subtraction("V", "I", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    subtraction("V", "I", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "IV");
 }
 END_TEST
 
 START_TEST (check_X_minus_I_equals_IX)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    subtraction("X", "I", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    subtraction("X", "I", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "IX");
 }
 END_TEST
 
 START_TEST (check_L_minus_I_equals_XLIX)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    subtraction("L", "I", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    subtraction("L", "I", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "XLIX");
 }
 END_TEST
 
 START_TEST (check_MMM_minus_M_equals_MM)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    subtraction("MMM", "M", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    subtraction("MMM", "M", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "MM");
 }
 END_TEST
 
 START_TEST (check_X_minus_XI_equals_INVALID)
 {
-    char resultant[16];
-    memset( resultant, 0x00, 16 );
-    subtraction("X", "XI", resultant);
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    subtraction("X", "XI", resultant, MAX_LENGTH);
     ck_assert_str_eq(resultant, "");
 }
 END_TEST
