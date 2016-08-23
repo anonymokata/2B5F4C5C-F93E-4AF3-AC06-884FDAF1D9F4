@@ -11,6 +11,29 @@ static const int MAX_LENGTH = 16;
 static const int MAX_NUMERAL_VALUE = 3999;
 static const int MIN_NUMERAL_VALUE = 1;
 
+/* Conversion table for converting from arabic to roman */
+typedef struct {
+	const char *	numeral;
+	int 			value;
+} conversion_struct;
+
+static const conversion_struct CONVERSION_TABLE[13] = {
+	{ .numeral = "M", .value = 1000 },
+	{ .numeral = "CM", .value = 900 },
+	{ .numeral = "D", .value = 500 },
+	{ .numeral = "CD", .value = 400 },
+	{ .numeral = "C", .value = 100 },
+	{ .numeral = "XC", .value = 90 },
+	{ .numeral = "L", .value = 50 },
+	{ .numeral = "XL", .value = 40 },
+	{ .numeral = "X", .value = 10 },
+	{ .numeral = "IX", .value = 9 },
+	{ .numeral = "V", .value = 5 },
+	{ .numeral = "IV", .value = 4 },
+	{ .numeral = "I", .value = 1 }
+};
+
+
 /**
  * Determines if a passed argument is a valid roman numeral.
  */
@@ -78,12 +101,23 @@ int convert_roman_to_arabic(const char *numeral){
 	return output;
 }
 
-
-
-
 /**
  * Converts the passed arabic number into a Roman numeral returned via the passed reference.
  */
-void convert_arabic_to_roman(const int num, char *roman_num){
-	//TODO
+void convert_arabic_to_roman(int num, char *roman_num){
+
+	/* Initialize the buffer */
+	memset(roman_num, '\0', MAX_LENGTH);
+
+	/* get size of conversion table */
+	int len = sizeof(CONVERSION_TABLE) / sizeof(conversion_struct);
+
+	/* convert values */
+	for(int i = 0; i < len; i++) {
+		const conversion_struct table = CONVERSION_TABLE[i];
+		while(num >= table.value) {
+			strcat(roman_num, table.numeral);
+			num -= table.value;
+		}
+	}
 }

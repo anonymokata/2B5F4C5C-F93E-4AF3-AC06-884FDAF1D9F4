@@ -334,7 +334,6 @@ START_TEST (check_3999_to_MMMCMXCIX)
 END_TEST
 
 
-
 /**
  * Test suite for running tests on conversion functions.
  */
