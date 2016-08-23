@@ -1,8 +1,6 @@
 #include <check.h>
 #include "../src/convert.h"
 
-
-
 /* check for Roman numeral validity */
 
 START_TEST (check_I_valid)
@@ -241,91 +239,136 @@ END_TEST
 
 START_TEST (check_1_to_I)
 {
-    ck_assert_str_eq("I", convert_arabic_to_roman(1));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 1);
+    ck_assert_str_eq("I", resultant);
 }
 END_TEST
 
 START_TEST (check_4_to_IV)
 {
-    ck_assert_str_eq("IV", convert_arabic_to_roman(4));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 4);
+    ck_assert_str_eq("IV", resultant);
 }
 END_TEST
 
 START_TEST (check_5_to_V)
 {
-    ck_assert_str_eq("V", convert_arabic_to_roman(5));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 5);
+    ck_assert_str_eq("V", resultant);
 }
 END_TEST
 
 START_TEST (check_9_to_IX)
 {
-    ck_assert_str_eq("IX", convert_arabic_to_roman(9));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 9);
+    ck_assert_str_eq("IX", resultant);
 }
 END_TEST
 
 START_TEST (check_10_to_X)
 {
-    ck_assert_str_eq("X", convert_arabic_to_roman(10));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 10);
+    ck_assert_str_eq("X", resultant);
 }
 END_TEST
 
 START_TEST (check_40_to_XL)
 {
-    ck_assert_str_eq("XL", convert_arabic_to_roman(40));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 40);
+    ck_assert_str_eq("XL", resultant);
 }
 END_TEST
 
 START_TEST (check_50_to_L)
 {
-    ck_assert_str_eq("L", convert_arabic_to_roman(50));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 50);
+    ck_assert_str_eq("L", resultant);
 }
 END_TEST
 
 START_TEST (check_90_to_XC)
 {
-    ck_assert_str_eq("XC", convert_arabic_to_roman(90));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 90);
+    ck_assert_str_eq("XC", resultant);
 }
 END_TEST
 
 START_TEST (check_400_to_CD)
 {
-    ck_assert_str_eq("CD", convert_arabic_to_roman(400));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 400);
+    ck_assert_str_eq("CD", resultant);
 }
 END_TEST
 
 START_TEST (check_500_to_D)
 {
-    ck_assert_str_eq("D", convert_arabic_to_roman(500));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 500);
+    ck_assert_str_eq("D", resultant);
 }
 END_TEST
 
 START_TEST (check_900_to_CM)
 {
-    ck_assert_str_eq("CM", convert_arabic_to_roman(900));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 900);
+    ck_assert_str_eq("CM", resultant);
 }
 END_TEST
 
 START_TEST (check_1000_to_M)
 {
-    ck_assert_str_eq("M", convert_arabic_to_roman(1000));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 1000);
+    ck_assert_str_eq("M", resultant);
 }
 END_TEST
 
 START_TEST (check_3999_to_MMMCMXCIX)
 {
-    ck_assert_str_eq("MMMCMXCIX", convert_arabic_to_roman(3999));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 3999);
+    ck_assert_str_eq("MMMCMXCIX", resultant);
 }
 END_TEST
 
 START_TEST (check_4000_to_INVALID)
 {
-    ck_assert_str_eq("", convert_arabic_to_roman(4000));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 4000);
+    ck_assert_str_eq("", resultant);
 }
 END_TEST
 
 START_TEST (check_0_to_INVALID)
 {
-    ck_assert_str_eq("", convert_arabic_to_roman(0));
+    char resultant[MAX_LENGTH];
+    memset(resultant, '\0', MAX_LENGTH );
+    convert_arabic_to_roman(resultant, MAX_LENGTH, 0);
+    ck_assert_str_eq("", resultant);
 }
 END_TEST
 

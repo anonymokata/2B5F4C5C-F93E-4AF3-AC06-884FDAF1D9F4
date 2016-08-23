@@ -105,15 +105,16 @@ int convert_roman_to_arabic(const char *numeral){
 /**
  * Converts the passed arabic number into a Roman numeral returned via the passed reference.
  */
-char *convert_arabic_to_roman(int num){
+void convert_arabic_to_roman(char * buffer, int buffer_len, int num){
+
+	/* validate arguments */
+	if(buffer == NULL || buffer_len != MAX_LENGTH || num < MIN_NUMERAL_VALUE || num > MAX_NUMERAL_VALUE){
+		return;
+	}
 
 	/* Initialize buffer */
-	char * roman_num = malloc(MAX_LENGTH);
+	memset(buffer, '\0', buffer_len);
 
-	/* Validate arguments */
-	if(num < MIN_NUMERAL_VALUE || num > MAX_NUMERAL_VALUE){
-		return roman_num;
-	}
 
 	/* get size of conversion table */
 	int len = sizeof(CONVERSION_TABLE) / sizeof(conversion_struct);
@@ -122,9 +123,8 @@ char *convert_arabic_to_roman(int num){
 	for(int i = 0; i < len; i++) {
 		const conversion_struct table = CONVERSION_TABLE[i];
 		while(num >= table.value) {
-			strcat(roman_num, table.numeral);
+			strcat(buffer, table.numeral);
 			num -= table.value;
 		}
 	}
-	return roman_num;
 }
